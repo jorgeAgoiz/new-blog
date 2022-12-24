@@ -1,6 +1,8 @@
 import { Client } from '@notionhq/client'
 import {
   GetPageResponse,
+  ListBlockChildrenResponse,
+  PartialBlockObjectResponse,
   QueryDatabaseResponse
 } from '@notionhq/client/build/src/api-endpoints'
 
@@ -16,25 +18,27 @@ export const getDatabase = async (databaseId: string) => {
 }
 
 export const getPage = async (pageId: string) => {
-  const response: any = await notion.pages.retrieve({
+  const response: GetPageResponse = await notion.pages.retrieve({
     page_id: pageId
   })
   return response
 }
 
-export const getBlocks = async (blockId: string) => {
+export const getBlocks = async (
+  blockId: string
+): Promise<PartialBlockObjectResponse[]> => {
   const blocks = []
-  let block
-  while (true) {
-    const { results, next_block } = await notion.blocks.children.list({
-      start_block: block,
-      block_id: blockId
-    })
-    blocks.push(...results)
-    if (!next_block) {
+  let hasMoreBlocks = true
+  while (hasMoreBlocks) {
+    const response: ListBlockChildrenResponse =
+      await notion.blocks.children.list({
+        block_id: blockId
+      })
+    blocks.push(...response.results)
+    if (!response.has_more) {
       break
     }
-    block = next_block
+    hasMoreBlocks = response.has_more
   }
   return blocks
 }

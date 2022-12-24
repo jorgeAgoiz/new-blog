@@ -1,9 +1,31 @@
+import { PartialBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 import { getDatabase, getPage, getBlocks } from '../../utils/notion'
 
-export const Post = ({ post, content }) => {
-  console.log({ post, content })
+interface Props {
+  page: any
+  content: PartialBlockObjectResponse[]
+}
 
-  return <div>Hola Ke ASE</div>
+export const Post = ({ page, content }: Props) => {
+  console.log({ page, content })
+  const { Name, Description, Publish, PublishDate, Picture } = page.properties
+
+  // Meter la imagen
+  return (
+    <div>
+      <h1>{Name.title[0].plain_text}</h1>
+      <h3>{Description.rich_text[0].plain_text}</h3>
+      <h3>Publicado: {Publish.checkbox ? 'Afirmativo' : 'Invalido'}</h3>
+      <h3>
+        {new Date(PublishDate.date.start).toLocaleString('en-Us', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric'
+        })}
+      </h3>
+    </div>
+  )
 }
 
 export const getStaticPaths = async () => {
@@ -22,14 +44,14 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async ({ params }: any) => {
-  const postId = params.postId
-  const post = await getPage(postId)
+export const getStaticProps = async ({ params }: { params: Params }) => {
+  const { postId } = params
+  const page = await getPage(postId)
   const content = await getBlocks(postId)
 
   return {
     props: {
-      post,
+      page,
       content
     },
     revalidate: 1
