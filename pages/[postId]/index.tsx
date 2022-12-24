@@ -8,8 +8,8 @@ interface Props {
 }
 
 export const Post = ({ page, content }: Props) => {
-  console.log({ page, content })
-  const { Name, Description, Publish, PublishDate, Picture } = page.properties
+  const { Name, Description, Publish, PublishDate /* , Picture  */ } =
+    page.properties
 
   // Meter la imagen
   return (

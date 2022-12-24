@@ -3,6 +3,7 @@ import { getDatabase } from '../utils/notion'
 import Link from 'next/link'
 
 export default function Home({ posts }: any) {
+  console.log(posts)
   return (
     <div>
       <Head>
