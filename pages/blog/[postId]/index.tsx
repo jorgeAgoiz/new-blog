@@ -1,6 +1,7 @@
 import { PartialBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 import { getDatabase, getPage, getBlocks } from '../../../utils/notion'
+import { GlobalContainer } from './styled'
 
 interface Props {
   page: any
@@ -13,7 +14,7 @@ export const Post = ({ page, content }: Props) => {
 
   // Meter la imagen
   return (
-    <div>
+    <GlobalContainer>
       <h1>{Name.title[0].plain_text}</h1>
       <h3>{Description.rich_text[0].plain_text}</h3>
       <h3>Publicado: {Publish.checkbox ? 'Afirmativo' : 'Invalido'}</h3>
@@ -24,7 +25,7 @@ export const Post = ({ page, content }: Props) => {
           year: 'numeric'
         })}
       </h3>
-    </div>
+    </GlobalContainer>
   )
 }
 

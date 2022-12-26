@@ -1,66 +1,52 @@
+import Link from 'next/link'
 import styled from 'styled-components'
+import { bangers } from '../../utils/fonts'
 
-export const Media = styled.div`
-  background-position: center;
-  background-size: cover;
-  height: 100%;
-  position: absolute;
-  transition: all 0.3s ease;
-  width: 100%;
-  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/bg_15.png');
-`
-export const Figure = styled.figure`
-  height: 370px;
-  overflow: hidden;
+export const Card = styled(Link)`
+  background: white;
+  text-decoration: none;
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  min-width: 310px;
   position: relative;
+  top: 0;
+  transition: all 0.1s ease-in;
 
-  &:hover ${Media} {
-    transform: scale(1.25);
+  &:hover {
+    top: -2px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   }
 `
-
-export const FigureAnchor = styled.a`
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 3;
+export const Article = styled.article`
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
-export const FigCaption = styled.figcaption`
-  color: #252830;
-  height: calc(100% - 30px);
-  margin: 15px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 250px;
-`
-export const Svg = styled.svg`
-  height: inherit;
-  width: 100%;
+export const Title = styled.h1`
+  font-size: 20px;
+  margin: 0;
+  color: #333;
 `
 
-export const SvgText = styled.text`
-  text-anchor: middle;
-  font-size: 28px;
-  font-family: 'Montserrat';
-  letter-spacing: 5px;
+export const Date = styled.span`
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 2em 0 0 0;
 `
-
-export const SvgRectAlpha = styled.rect`
-  fill: white;
-`
-export const SvgRectBase = styled.rect`
-  fill: white;
-  -webkit-mask: url(#mask);
-  mask: url(#mask);
-`
-
-export const FigCaptionBody = styled.div`
-  background-color: white;
-  bottom: 0;
-  padding: 15px;
-  position: absolute;
-  width: 100%;
+export const Thumb = styled.div<{ backgroundImage: string }>`
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+  background-image: ${p =>
+    p.backgroundImage
+      ? `url(${p.backgroundImage})`
+      : 'url(images/michael-dziedzic-unsplash.jpg)'};
 `
