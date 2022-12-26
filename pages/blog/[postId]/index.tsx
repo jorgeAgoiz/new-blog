@@ -1,6 +1,6 @@
 import { PartialBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
-import { getDatabase, getPage, getBlocks } from '../../utils/notion'
+import { getDatabase, getPage, getBlocks } from '../../../utils/notion'
 
 interface Props {
   page: any

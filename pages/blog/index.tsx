@@ -1,30 +1,19 @@
-import Link from 'next/link'
 import Header from '../../components/Header'
+import PostPreview from '../../components/PostPreview'
 import { getDatabase } from '../../utils/notion'
+import { GlobalContainer } from './styled'
 
 const Blog = ({ posts }: any) => {
   return (
-    <>
+    <GlobalContainer>
       <Header />
-      <div>
+      <main style={{ marginTop: '6rem', color: 'black' }}>
         <h1>Sección BLOG</h1>
         {posts.map((post: any) => {
-          const date = new Date(post.created_time).toLocaleString('en-Us', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric'
-          })
-          return (
-            <div key={post.id}>
-              <span className="text-sm">{date}</span>
-              <Link href="/[postId]" as={`/${post.id}`}>
-                Link
-              </Link>
-            </div>
-          )
+          return <PostPreview key={post.id} />
         })}
-      </div>
-    </>
+      </main>
+    </GlobalContainer>
   )
 }
 
