@@ -1,18 +1,17 @@
 import Header from '../../components/Header'
 import PostPreview from '../../components/PostPreview'
 import { getDatabase } from '../../utils/notion'
-import { GlobalContainer } from './styled'
+import { GlobalContainer, Main } from './styled'
 
 const Blog = ({ posts }: any) => {
   return (
     <GlobalContainer>
       <Header />
-      <main style={{ marginTop: '6rem', color: 'black' }}>
-        <h1>Sección BLOG</h1>
+      <Main>
         {posts.map((post: any) => {
           return <PostPreview key={post.id} />
         })}
-      </main>
+      </Main>
     </GlobalContainer>
   )
 }

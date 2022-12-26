@@ -7,3 +7,13 @@ export const GlobalContainer = styled.div`
   width: 100%;
   min-height: 100vh;
 `
+export const Main = styled.main`
+  width: 100%;
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+`

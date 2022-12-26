@@ -1,4 +1,4 @@
-export const dateParser = (datePost: any) =>
+export const dateParser = (datePost: any): string =>
   new Date(datePost).toLocaleString('en-Us', {
     month: 'long',
     day: 'numeric',
