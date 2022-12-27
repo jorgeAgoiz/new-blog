@@ -1,8 +1,17 @@
-import { PartialBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 import { dateParser } from '../../../utils/dateParser'
 import { getDatabase, getPage, getBlocks } from '../../../utils/notion'
-import { DateText, DetailsContainer, GlobalContainer, Title } from './styled'
+import {
+  DateText,
+  DetailsContainer,
+  Main,
+  TextContainer,
+  TextH1,
+  TextH2,
+  TextH3,
+  TextParagraph,
+  Title
+} from './styled'
 
 interface Props {
   page: any
@@ -10,24 +19,48 @@ interface Props {
 }
 
 export const Post = ({ page, content }: Props) => {
-  const { Name, Description, Publish, PublishDate /* , Picture  */ } =
-    page.properties
+  const { Name } = page.properties
 
-  console.log({ page, content })
+  const renderBlock = (elem: any) => {
+    const blockType: string = elem.type
+    const detailsBlock = elem[blockType]
 
-  content.forEach((elem: any) => {
-    const { type }: any = elem
-    console.log(elem[type])
-  })
-  // Render a custom block depends the type
+    switch (blockType) {
+      case 'paragraph':
+        return (
+          <TextParagraph key={elem.id}>
+            {detailsBlock.rich_text[0]?.plain_text}
+          </TextParagraph>
+        )
+      case 'heading_1':
+        return (
+          <TextH1 key={elem.id}>{detailsBlock.rich_text[0]?.plain_text}</TextH1>
+        )
+      case 'heading_2':
+        return (
+          <TextH2 key={elem.id}>{detailsBlock.rich_text[0]?.plain_text}</TextH2>
+        )
+      case 'heading_3':
+        return (
+          <TextH3 key={elem.id}>{detailsBlock.rich_text[0]?.plain_text}</TextH3>
+        )
+      default:
+        return null
+    }
+  }
 
   return (
-    <GlobalContainer>
-      <DetailsContainer>
-        <Title>{Name.title[0].plain_text}</Title>
-        <DateText>{dateParser(PublishDate.date.start)}</DateText>
-      </DetailsContainer>
-    </GlobalContainer>
+    <>
+      <Main>
+        <DetailsContainer>
+          <Title>{Name?.title[0]?.plain_text}</Title>
+          <DateText>{dateParser(page.last_edited_time!)}</DateText>
+        </DetailsContainer>
+        <TextContainer>
+          {content.map((elem: any) => renderBlock(elem))}
+        </TextContainer>
+      </Main>
+    </>
   )
 }
 

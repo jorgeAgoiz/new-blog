@@ -1,6 +1,7 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { Keyframes, keyframes } from 'styled-components'
 import { bangers } from '../../utils/fonts'
-const waveAnimation = keyframes`
+
+const waveAnimation: Keyframes = keyframes`
   0%,
   100% {
     transform: rotate(0deg);
@@ -15,12 +16,12 @@ const waveAnimation = keyframes`
 
 export const GlobalContainer = styled.footer`
   display: flex;
-  height: 100px;
+  height: 90px;
   width: 100%;
   background-color: white;
   line-height: 1.3;
   font-family: ${bangers.style.fontFamily};
-  opacity: 0.7;
+  opacity: 0.9;
   bottom: 0;
   position: fixed;
 `
@@ -47,7 +48,7 @@ export const ListAnchor = styled.a`
 `
 
 export const Hand = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 `
 
 export const ListItem = styled.li`

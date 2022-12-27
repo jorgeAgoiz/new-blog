@@ -13,9 +13,10 @@ export const Wrapper = styled.header`
   gap: 3rem;
   font-family: ${rockSalt.style.fontFamily};
   box-shadow: 0px 15px 10px -15px #111;
-  opacity: 0.8;
+  opacity: 0.9;
   position: fixed;
   top: 0;
+  z-index: 99;
 `
 
 export const NavLink = styled(Link)`

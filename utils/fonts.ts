@@ -12,3 +12,11 @@ export const indieFlower: NextFont = localFont({
 export const bangers: NextFont = localFont({
   src: '../assets/fonts/Bangers-Regular.ttf'
 })
+
+export const edu: NextFont = localFont({
+  src: '../assets/fonts/EduNSWACTFoundation.ttf'
+})
+
+export const swanky: NextFont = localFont({
+  src: '../assets/fonts/SwankyandMooMoo.ttf'
+})

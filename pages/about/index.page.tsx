@@ -1,18 +1,11 @@
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
-import { Title } from './styled'
-import { GlobalContainer } from './styled'
+import { Title, Main } from './styled'
 
-const About = () => {
+const About = (): JSX.Element => {
   return (
     <>
-      <GlobalContainer>
-        <Header />
-        <main>
-          <Title>Sección About Me</Title>
-        </main>
-        <Footer />
-      </GlobalContainer>
+      <Main>
+        <Title>Sección About Me</Title>
+      </Main>
     </>
   )
 }

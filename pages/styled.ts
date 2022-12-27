@@ -1,13 +1,9 @@
 import styled from 'styled-components'
 import { indieFlower } from '../utils/fonts'
 
-export const GlobalContainer = styled.div`
+export const Main = styled.main`
   width: 100%;
-  min-height: 100vh;
-  background-image: url('images/joe-woods-unsplash.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
+  height: 92vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

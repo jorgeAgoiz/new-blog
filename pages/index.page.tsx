@@ -1,7 +1,5 @@
 import Head from 'next/head'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import { GlobalContainer, Title } from './styled'
+import { Title, Main } from './styled'
 
 export default function Home() {
   return (
@@ -12,13 +10,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <GlobalContainer>
-        <Header />
-        <main>
-          <Title>Jorge Agoiz Website</Title>
-        </main>
-        <Footer />
-      </GlobalContainer>
+      <Main>
+        <Title>Jorge Agoiz Website</Title>
+      </Main>
     </>
   )
 }

@@ -1,24 +1,21 @@
 import styled from 'styled-components'
-import { bangers, indieFlower, rockSalt } from '../../../utils/fonts'
+import { bangers, indieFlower, rockSalt, swanky } from '../../../utils/fonts'
 
-export const GlobalContainer = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  background-image: url('../images/joe-woods-unsplash.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
+export const Main = styled.main`
+  width: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding: 2rem;
+  gap: 1rem;
+  margin-top: 7rem;
+  margin-bottom: 8rem;
 `
 
-export const DetailsContainer = styled.div`
+export const DetailsContainer = styled.section`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   height: auto;
   justify-content: center;
   align-items: center;
@@ -38,4 +35,37 @@ export const DateText = styled.h2`
   text-align: left;
   letter-spacing: 1px;
   font-family: ${indieFlower.style.fontFamily};
+`
+export const TextH1 = styled.h1`
+  font-size: 2rem;
+  color: black;
+  font-family: ${rockSalt.style.fontFamily};
+  text-align: center;
+`
+export const TextH2 = styled.h2`
+  font-size: 2.2rem;
+  color: black;
+  font-family: ${rockSalt.style.fontFamily};
+  text-align: center;
+`
+export const TextH3 = styled.h3`
+  font-size: 2.8rem;
+  color: black;
+  font-family: ${rockSalt.style.fontFamily};
+  text-align: center;
+`
+export const TextParagraph = styled.p`
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: black;
+  text-align: justify;
+  font-family: ${swanky.style.fontFamily};
+`
+export const TextContainer = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
 `
