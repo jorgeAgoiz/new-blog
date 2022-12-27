@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import { bangers } from '../../utils/fonts'
+import { bangers, indieFlower } from '../../utils/fonts'
 
 export const Card = styled(Link)`
   background: white;
@@ -16,8 +16,8 @@ export const Card = styled(Link)`
   transition: all 0.1s ease-in;
 
   &:hover {
-    top: -2px;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    top: -3px;
+    box-shadow: 0 6px 7px rgba(0, 0, 0, 0.2);
   }
 `
 export const Article = styled.article`
@@ -31,11 +31,16 @@ export const Title = styled.h1`
   font-size: 20px;
   margin: 0;
   color: #333;
+  font-family: ${bangers.style.fontFamily};
+  letter-spacing: 2px;
+  font-weight: 400;
 `
 
 export const Date = styled.span`
-  font-size: 12px;
+  font-size: 14px;
+  letter-spacing: 2px;
   font-weight: bold;
+  font-family: ${indieFlower.style.fontFamily};
   color: #999;
   text-transform: uppercase;
   letter-spacing: 0.05em;

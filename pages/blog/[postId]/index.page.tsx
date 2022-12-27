@@ -1,30 +1,32 @@
 import { PartialBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
+import { dateParser } from '../../../utils/dateParser'
 import { getDatabase, getPage, getBlocks } from '../../../utils/notion'
-import { GlobalContainer } from './styled'
+import { DateText, DetailsContainer, GlobalContainer, Title } from './styled'
 
 interface Props {
   page: any
-  content: PartialBlockObjectResponse[]
+  content: any
 }
 
 export const Post = ({ page, content }: Props) => {
   const { Name, Description, Publish, PublishDate /* , Picture  */ } =
     page.properties
 
-  // Meter la imagen
+  console.log({ page, content })
+
+  content.forEach((elem: any) => {
+    const { type }: any = elem
+    console.log(elem[type])
+  })
+  // Render a custom block depends the type
+
   return (
     <GlobalContainer>
-      <h1>{Name.title[0].plain_text}</h1>
-      <h3>{Description.rich_text[0].plain_text}</h3>
-      <h3>Publicado: {Publish.checkbox ? 'Afirmativo' : 'Invalido'}</h3>
-      <h3>
-        {new Date(PublishDate.date.start).toLocaleString('en-Us', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric'
-        })}
-      </h3>
+      <DetailsContainer>
+        <Title>{Name.title[0].plain_text}</Title>
+        <DateText>{dateParser(PublishDate.date.start)}</DateText>
+      </DetailsContainer>
     </GlobalContainer>
   )
 }
