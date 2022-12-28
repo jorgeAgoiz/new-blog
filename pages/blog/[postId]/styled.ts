@@ -8,8 +8,13 @@ export const Main = styled.main`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
   margin-top: 7rem;
   margin-bottom: 8rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 0px 19px 6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 19px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 19px 6px rgba(0, 0, 0, 0.75);
 `
 
 export const DetailsContainer = styled.section`
@@ -68,4 +73,14 @@ export const TextContainer = styled.section`
   justify-content: center;
   align-items: flex-start;
   gap: 1rem;
+`
+export const PictureContainer = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
 `

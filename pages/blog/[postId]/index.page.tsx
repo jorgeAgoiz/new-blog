@@ -1,17 +1,16 @@
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
+import RenderBlock from '../../../components/RenderBlock'
 import { dateParser } from '../../../utils/dateParser'
 import { getDatabase, getPage, getBlocks } from '../../../utils/notion'
 import {
   DateText,
   DetailsContainer,
   Main,
+  PictureContainer,
   TextContainer,
-  TextH1,
-  TextH2,
-  TextH3,
-  TextParagraph,
   Title
 } from './styled'
+import Image from 'next/image'
 
 interface Props {
   page: any
@@ -20,34 +19,8 @@ interface Props {
 
 export const Post = ({ page, content }: Props) => {
   const { Name } = page.properties
-
-  const renderBlock = (elem: any) => {
-    const blockType: string = elem.type
-    const detailsBlock = elem[blockType]
-
-    switch (blockType) {
-      case 'paragraph':
-        return (
-          <TextParagraph key={elem.id}>
-            {detailsBlock.rich_text[0]?.plain_text}
-          </TextParagraph>
-        )
-      case 'heading_1':
-        return (
-          <TextH1 key={elem.id}>{detailsBlock.rich_text[0]?.plain_text}</TextH1>
-        )
-      case 'heading_2':
-        return (
-          <TextH2 key={elem.id}>{detailsBlock.rich_text[0]?.plain_text}</TextH2>
-        )
-      case 'heading_3':
-        return (
-          <TextH3 key={elem.id}>{detailsBlock.rich_text[0]?.plain_text}</TextH3>
-        )
-      default:
-        return null
-    }
-  }
+  const pictures: Array<any> = page.properties.Picture.files
+  console.log({ pictures })
 
   return (
     <>
@@ -57,8 +30,24 @@ export const Post = ({ page, content }: Props) => {
           <DateText>{dateParser(page.last_edited_time!)}</DateText>
         </DetailsContainer>
         <TextContainer>
-          {content.map((elem: any) => renderBlock(elem))}
+          {content.map((elem: any) => (
+            <RenderBlock key={elem.id} elem={elem} />
+          ))}
         </TextContainer>
+        <PictureContainer>
+          {pictures.map(image => {
+            return (
+              <Image
+                key={image.name}
+                alt={image.name}
+                src={image.file.url}
+                width={400}
+                height={400}
+                priority
+              />
+            )
+          })}
+        </PictureContainer>
       </Main>
     </>
   )
