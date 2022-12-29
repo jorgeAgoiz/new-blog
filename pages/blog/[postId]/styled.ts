@@ -11,7 +11,7 @@ export const Main = styled.main`
   padding: 1rem;
   margin-top: 7rem;
   margin-bottom: 8rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   -webkit-box-shadow: 0px 0px 19px 6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 19px 6px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 19px 6px rgba(0, 0, 0, 0.75);

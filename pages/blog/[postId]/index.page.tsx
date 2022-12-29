@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 import RenderBlock from '../../../components/RenderBlock'
 import { dateParser } from '../../../utils/dateParser'
@@ -20,10 +21,14 @@ interface Props {
 export const Post = ({ page, content }: Props) => {
   const { Name } = page.properties
   const pictures: Array<any> = page.properties.Picture.files
-  console.log({ pictures })
 
   return (
     <>
+      <Head>
+        <title>{Name?.title[0]?.plain_text} - Jorge Agoiz Website</title>
+        <meta name="description" content="Jorge Agoiz personal website" />
+        <link rel="icon" href="/icon-palm-tree.png" />
+      </Head>
       <Main>
         <DetailsContainer>
           <Title>{Name?.title[0]?.plain_text}</Title>

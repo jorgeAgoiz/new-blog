@@ -16,7 +16,7 @@ const waveAnimation: Keyframes = keyframes`
 
 export const GlobalContainer = styled.footer`
   display: flex;
-  height: 90px;
+  height: 80px;
   width: 100%;
   background-color: white;
   line-height: 1.3;
@@ -24,6 +24,7 @@ export const GlobalContainer = styled.footer`
   opacity: 0.9;
   bottom: 0;
   position: fixed;
+  z-index: 99;
 `
 
 export const List = styled.ul`

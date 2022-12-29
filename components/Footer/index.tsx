@@ -2,15 +2,23 @@ import { GlobalContainer, List, ListAnchor, Hand, ListItem } from './styled'
 
 const Footer = (): JSX.Element => {
   return (
-    <GlobalContainer>
+    <GlobalContainer aria-label="Pie de página">
       <List>
         <ListItem>
-          <ListAnchor href="https://www.linkedin.com/in/jorge-agoiz-pedraja-78321b39/">
+          <ListAnchor
+            aria-label="Ir al perfil Linkedin"
+            href="https://www.linkedin.com/in/jorge-agoiz-pedraja-78321b39/"
+          >
             Linkedin
           </ListAnchor>
         </ListItem>
         <ListItem>
-          <ListAnchor href="https://github.com/jorgeAgoiz">Github</ListAnchor>
+          <ListAnchor
+            aria-label="Ir al perfil Github"
+            href="https://github.com/jorgeAgoiz"
+          >
+            Github
+          </ListAnchor>
         </ListItem>
         <ListItem>
           <Hand>👋</Hand>

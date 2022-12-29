@@ -17,15 +17,22 @@ export const Wrapper = styled.header`
   position: fixed;
   top: 0;
   z-index: 99;
+  @media (max-width: 768px) {
+    gap: 2.2rem;
+  }
 `
 
 export const NavLink = styled(Link)`
   text-decoration: none;
-  font-size: 30px;
+  font-size: 2rem;
   color: black;
   opacity: 1;
 
   &:hover {
     color: orange;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
   }
 `

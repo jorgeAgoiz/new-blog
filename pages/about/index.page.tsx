@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import {
   VideoContent,
   Main,
@@ -12,6 +13,12 @@ import {
 const About = (): JSX.Element => {
   return (
     <>
+      <Head>
+        <title>Acerca de - Jorge Agoiz Website</title>
+        <meta name="description" content="Jorge Agoiz personal website" />
+        <link rel="icon" href="/icon-palm-tree.png" />
+      </Head>
+
       <Main>
         <Section>
           <Title>Acerca de mí</Title>

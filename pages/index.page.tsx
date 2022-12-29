@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import { Title, Main } from './styled'
 
-export default function Home() {
+const Home = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Jorge Agoiz Website</title>
+        <title>Inicio - Jorge Agoiz Website</title>
         <meta name="description" content="Jorge Agoiz personal website" />
         <link rel="icon" href="/icon-palm-tree.png" />
       </Head>
@@ -16,3 +16,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home
