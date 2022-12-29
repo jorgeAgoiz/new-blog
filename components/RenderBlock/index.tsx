@@ -1,11 +1,12 @@
+import { Block } from '../../utils/types/block'
 import { TextH1, TextH2, TextH3, TextParagraph } from './styled'
 
 interface Props {
-  elem: any
+  elem: Block
 }
 
 const RenderBlock = ({ elem }: Props): JSX.Element | null => {
-  const blockType: string = elem.type
+  const blockType = elem.type
   const detailsBlock = elem[blockType]
 
   switch (blockType) {

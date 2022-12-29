@@ -6,7 +6,7 @@ import {
   QueryDatabaseResponse
 } from '@notionhq/client/build/src/api-endpoints'
 
-const notion = new Client({
+const notion: Client = new Client({
   auth: process.env.NOTION_INTEGRATION_TOKEN
 })
 

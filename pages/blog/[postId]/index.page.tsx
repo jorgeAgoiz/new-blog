@@ -12,15 +12,17 @@ import {
   Title
 } from './styled'
 import Image from 'next/image'
+import { PictureFiles, Post } from '../../../utils/types/post'
+import { Block } from '../../../utils/types/block'
 
 interface Props {
-  page: any
-  content: any
+  page: Post
+  content: Array<Block>
 }
 
-export const Post = ({ page, content }: Props) => {
+export const PostPage = ({ page, content }: Props) => {
   const { Name } = page.properties
-  const pictures: Array<any> = page.properties.Picture.files
+  const pictures: Array<PictureFiles> = page.properties.Picture.files
 
   return (
     <>
@@ -35,12 +37,12 @@ export const Post = ({ page, content }: Props) => {
           <DateText>{dateParser(page.last_edited_time!)}</DateText>
         </DetailsContainer>
         <TextContainer>
-          {content.map((elem: any) => (
+          {content.map((elem: Block) => (
             <RenderBlock key={elem.id} elem={elem} />
           ))}
         </TextContainer>
         <PictureContainer>
-          {pictures.map(image => {
+          {pictures.map((image: PictureFiles) => {
             return (
               <Image
                 key={image.name}
@@ -88,4 +90,4 @@ export const getStaticProps = async ({ params }: { params: Params }) => {
   }
 }
 
-export default Post
+export default PostPage
