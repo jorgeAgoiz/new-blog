@@ -4,13 +4,13 @@ const Header = (): JSX.Element => {
   return (
     <Wrapper aria-label="Cabecera de página">
       <NavLink href="/" aria-label="Ir a la Home">
-        Home
+        Inicio
       </NavLink>
       <NavLink href="/blog" aria-label="Ir al Blog">
         Blog
       </NavLink>
       <NavLink href="/about" aria-label="Ir a sección About">
-        About
+        Acerca
       </NavLink>
     </Wrapper>
   )

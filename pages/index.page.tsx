@@ -7,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Jorge Agoiz Website</title>
         <meta name="description" content="Jorge Agoiz personal website" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon-palm-tree.png" />
       </Head>
 
       <Main>
