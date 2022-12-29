@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import {
-  VideoContent,
   Main,
-  Video,
-  TextH2,
-  VideoSection,
+  Paragraph,
   Section,
+  TextH2,
   Title,
-  Paragraph
+  Video,
+  VideoContent,
+  VideoSection
 } from './styled'
 
 const About = (): JSX.Element => {

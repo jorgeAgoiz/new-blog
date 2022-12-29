@@ -1,4 +1,4 @@
-import { GlobalContainer, List, ListAnchor, Hand, ListItem } from './styled'
+import { GlobalContainer, Hand, List, ListAnchor, ListItem } from './styled'
 
 const Footer = (): JSX.Element => {
   return (

@@ -1,8 +1,11 @@
-import Head from 'next/head'
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
+import Head from 'next/head'
+import Image from 'next/image'
 import RenderBlock from '../../../components/RenderBlock'
 import { dateParser } from '../../../utils/dateParser'
-import { getDatabase, getPage, getBlocks } from '../../../utils/notion'
+import { getBlocks, getDatabase, getPage } from '../../../utils/notion'
+import { Block } from '../../../utils/types/block'
+import { PictureFiles, Post } from '../../../utils/types/post'
 import {
   DateText,
   DetailsContainer,
@@ -11,9 +14,6 @@ import {
   TextContainer,
   Title
 } from './styled'
-import Image from 'next/image'
-import { PictureFiles, Post } from '../../../utils/types/post'
-import { Block } from '../../../utils/types/block'
 
 interface Props {
   page: Post

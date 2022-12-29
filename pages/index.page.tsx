@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Title, Main } from './styled'
+import { Main, Title } from './styled'
 
 const Home = (): JSX.Element => {
   return (

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { indieFlower, bangers, edu } from '../../utils/fonts'
+import { bangers, edu, indieFlower } from '../../utils/fonts'
 
 export const Main = styled.main`
   width: 100%;
